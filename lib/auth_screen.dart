@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import 'supabase_init.dart';
 
 class AuthScreen extends StatefulWidget {
-  const AuthScreen({super.key});
-
   @override
-  _AuthScreenState createState() => _AuthScreenState();
+  AuthScreenState createState() => AuthScreenState();
 }
 
-class _AuthScreenState extends State<AuthScreen> {
+class AuthScreenState extends State<AuthScreen> {
   final email = TextEditingController();
   final password = TextEditingController();
   bool isLogin = true;
@@ -21,8 +19,10 @@ class _AuthScreenState extends State<AuthScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(isLogin ? "Login" : "Sign Up",
-                style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
+            Text(
+              isLogin ? "Login" : "Sign Up",
+              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+            ),
 
             TextField(
               controller: email,
@@ -35,7 +35,7 @@ class _AuthScreenState extends State<AuthScreen> {
               decoration: InputDecoration(hintText: "Password"),
             ),
 
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
 
             ElevatedButton(
               onPressed: () async {
@@ -55,10 +55,16 @@ class _AuthScreenState extends State<AuthScreen> {
             ),
 
             TextButton(
-              onPressed: () => setState(() => isLogin = !isLogin),
-              child: Text(isLogin
-                  ? "Don’t have an account? Sign Up"
-                  : "Already have an account? Login"),
+              onPressed: () {
+                setState(() {
+                  isLogin = !isLogin;
+                });
+              },
+              child: Text(
+                isLogin
+                    ? "Don't have an account? Sign Up"
+                    : "Already have an account? Login",
+              ),
             )
           ],
         ),
