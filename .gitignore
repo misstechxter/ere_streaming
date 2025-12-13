@@ -1,0 +1,19 @@
+# Flutter / Dart
+.dart_tool/
+.packages
+.pub/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+.idea/
+.vscode/
+# iOS
+ios/Pods/
+**/Generated.xcconfig
+# Android / IntelliJ
+.local.properties
+.gradle/
+# macOS
+DerivedData/
+# Misc
+*.log
